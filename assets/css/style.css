@@ -7,6 +7,20 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.page {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-areas:
+        "sidebar todayContainer"
+        "sidebar forecastContainer";
+    gap: 20px;
+    height: 100%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+
 h2 {
     padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -21,12 +35,36 @@ h2 {
     display: inline-block;
 }
 
-.todayContainer {
-    display: flex;
-    flex-direction: column-reverse;
+#sidebar {
+    grid-area: sidebar;
+
 
 }
 
-.today-weather {
-    border: solid 1px yellow;
+.todayContainer {
+    grid-area: todayContainer;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid navy;
+    box-sizing: border-box;
+    width: 500px;
+    height: 300px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card-container {
+    grid-area: forecastContainer;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card {
+    background-color: dodgerblue;
+    color: aliceblue;
+    padding: 15px;
 }

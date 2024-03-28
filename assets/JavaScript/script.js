@@ -27,6 +27,16 @@ function renderSearchHistory() {
     }
 }
 
+function appendToHistory(search) {
+    if (searchHistory.indexOf(search) !== -1) {
+        return;
+    }
+    searchHistory.push(search);
+
+    localStorage.setItem("search-history", JSON.stringify(searchHistory));
+    renderSearchHistory();
+}
+
 
 
 
@@ -44,7 +54,7 @@ function renderSearchHistory() {
 
 // init();
 
-//Seacrh Button Functionality:
+
 async function searchCity(city) {
     console.log(city);
     try {
@@ -64,6 +74,7 @@ async function searchCity(city) {
         </div>
         
         `;
+
         todayContainer.innerHTML = todayWeather
         const lat = data.coord.lat
         const lon = data.coord.lon
@@ -99,11 +110,9 @@ async function searchCity(city) {
     } catch (error) {
         console.error("error fetching data", error)
     }
-
-
-
-
 }
+
+
 
 citySearchBtn.addEventListener('submit', function (event) {
     event.preventDefault();
