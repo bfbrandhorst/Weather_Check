@@ -1,6 +1,6 @@
 const weatherApiRootUrl = 'https://api.openweathermap.org';
 const weatherApiKey = "decfc900f74a3a313929a403ee57e25e";
-const searchHistory = [];
+const searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
 
 
 //const searchedEl = document.getElementById('searched-cities');
@@ -26,6 +26,7 @@ function renderSearchHistory() {
 
     }
 }
+renderSearchHistory();
 
 function appendToHistory(search) {
     if (searchHistory.indexOf(search) !== -1) {
@@ -124,5 +125,5 @@ citySearchBtn.addEventListener('submit', function (event) {
     console.log("working");
 
     searchCity(searchedEl)
-
+    appendToHistory(searchedEl);
 });
