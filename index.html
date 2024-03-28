@@ -27,13 +27,21 @@
                 <h2>Search for a City:</h2>
                 <div>
                     <form id="searched-cities" class="mb-2">
-                        <input id="city" class="form-input w-100" type="text">
+                        <input id="city" class="form-input" type="search">
                         <button class="btn btn-info">Seacrh</button>
                 </div>
             </div>
             <div class="col-12 col-lg-9"></div>
+            <div class="seacrhHistoryContainer" id="history"></div>
         </div>
-
+        <div class="todayContainer" id="today">
+            <h3>Today's Weather</h3>
+            <div class="today-weather"></div>
+        </div>
+        <div class="forecastContainer" id="forecast">
+            <h4>5 - Day Forecast:</h4>
+            <div class="five-day"></div>
+        </div>
     </main>
     <script src="./assets/JavaScript/script.js"></script>
 </body>

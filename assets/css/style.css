@@ -11,3 +11,22 @@ h2 {
     padding: 10px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+#city {
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.btn btn-info {
+    display: inline-block;
+}
+
+.todayContainer {
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.today-weather {
+    border: solid 1px yellow;
+}
