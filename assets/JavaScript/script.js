@@ -3,14 +3,14 @@ const weatherApiKey = "decfc900f74a3a313929a403ee57e25e";
 const searchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
 
 
-//const searchedEl = document.getElementById('searched-cities');
+
 const todayContainer = document.querySelector(".today-weather");
 const forecastContainer = document.querySelector(".five-day");
 const searchHistoryContainer = document.querySelector("#history");
 const citySearchBtn = document.querySelector("#searched-cities");
 
 
-//History Display Functionality:
+
 function renderSearchHistory() {
     searchHistoryContainer.innerHTML = "";
 
@@ -38,22 +38,6 @@ function appendToHistory(search) {
     renderSearchHistory();
 }
 
-
-
-
-// function init() {
-//     const searchedLocations = JSON.parse(localStorage.getItems('locations'));
-
-//     if (searchedLocations.length === 0) {
-//         return;
-//     }
-
-//     for (const location of searchedLocations) {
-
-//     }
-// }
-
-// init();
 
 
 async function searchCity(city) {
@@ -113,6 +97,22 @@ async function searchCity(city) {
     }
 }
 
+const cardContainer = document.getElementById("card-container");
+fiveDayCard.forEach(data => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.style.backgroundColor = data.color;
+    card.innerHTML = `
+        <div> 
+        <h3>${date}</h3>
+        <p>temp: ${day.main.temp}</p>
+        <p>humidity: ${day.main.humidity}</p>
+        <p>wind-speed: ${day.wind.speed}</p>
+        <img src = "${fiveUrl}"/>
+        </div>`;
+    cardContainer.appendChild(card);
+
+})
 
 
 citySearchBtn.addEventListener('submit', function (event) {
