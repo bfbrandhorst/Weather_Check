@@ -24,7 +24,15 @@ function renderSearchHistory() {
         citySearchBtn.textContent = searchHistory[i];
         searchHistoryContainer.append(citySearchBtn);
 
+        citySearchBtn.addEventListener('click', function(event){
+            event.preventDefault()
+            console.log('click')
+            let cityName = citySearchBtn.textContent
+            searchCity(cityName)
+            console.log(cityName)
+        })
     }
+
 }
 renderSearchHistory();
 
@@ -78,10 +86,10 @@ async function searchCity(city) {
         filteredArray.forEach((day) => {
             console.log(day)
             let date = new Date(day.dt_txt).toLocaleDateString().split(",")[0]
-            const fiveIcon = data.weather[0].icon
+            const fiveIcon = day.weather[0].icon
             const fiveUrl = `https://openweathermap.org/img/wn/${fiveIcon}.png`
             fiveDayCard += `
-            <div> 
+            <div class='card'> 
             <h3>${date}</h3>
             <p>temp: ${day.main.temp}</p>
             <p>humidity: ${day.main.humidity}</p>
@@ -97,22 +105,6 @@ async function searchCity(city) {
     }
 }
 
-const cardContainer = document.getElementById("card-container");
-fiveDayCard.forEach(data => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.style.backgroundColor = data.color;
-    card.innerHTML = `
-        <div> 
-        <h3>${date}</h3>
-        <p>temp: ${day.main.temp}</p>
-        <p>humidity: ${day.main.humidity}</p>
-        <p>wind-speed: ${day.wind.speed}</p>
-        <img src = "${fiveUrl}"/>
-        </div>`;
-    cardContainer.appendChild(card);
-
-})
 
 
 citySearchBtn.addEventListener('submit', function (event) {

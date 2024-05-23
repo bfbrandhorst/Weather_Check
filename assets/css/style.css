@@ -63,3 +63,29 @@ h2 {
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.forecastContainer {
+    text-align: center;
+}
+
+.card {
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: azure;
+}
+
+.five-day {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.searchHistoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+}
